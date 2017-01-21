@@ -42,7 +42,7 @@ watch_socket_dirs = False
 BASE_CONF_DICT = {
     "rcfile_path": "./rcs/",
     "macro_path": "./rcs/",
-    "morgue_path": "/./rcs/%n",
+    "morgue_path": "./rcs/%n",
     "inprogress_path": "./rcs/running",
     "ttyrec_path": "./rcs/ttyrecs/%n",
     "socket_path": "./rcs",
