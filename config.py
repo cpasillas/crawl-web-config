@@ -40,12 +40,12 @@ watch_socket_dirs = False
 
 
 BASE_CONF_DICT = {
-    "rcfile_path": "/data/rcs/",
-    "macro_path": "/data/rcs/",
-    "morgue_path": "/data/rcs/%n",
-    "inprogress_path": "/data/rcs/running",
-    #"ttyrec_path": "/data/rcs/ttyrecs/%n",
-    "socket_path": "/data/rcs",
+    "rcfile_path": "./rcs/",
+    "macro_path": "./rcs/",
+    "morgue_path": "/./rcs/%n",
+    "inprogress_path": "./rcs/running",
+    "ttyrec_path": "./rcs/ttyrecs/%n",
+    "socket_path": "./rcs",
     "client_path": "/root/crawl/crawl-ref/source/webserver/game_data/",
     "morgue_url": None,
     "send_json_options": True}
