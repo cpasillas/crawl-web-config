@@ -42,7 +42,7 @@ watch_socket_dirs = False
 BASE_CONF_DICT = {
     "rcfile_path": "/data/rcs/%s/",
     "macro_path": "/data/rcs/%s/",
-    "morgue_path": "/data/rcs/%s/%n",
+    "morgue_path": "/data/rcs/%s/",
     "inprogress_path": "/data/rcs/%s/running",
     "ttyrec_path": "/data/rcs/%s/ttyrecs/%n",
     "socket_path": "/data/rcs/%s/",
@@ -57,7 +57,7 @@ def GameConfTuples(version, conf_tuple_list):
   conf_dict['crawl_binary'] = "/root/crawlout/%s/crawl" % version
   conf_dict['rcfile_path'] = conf_dict['rcfile_path'] % version
   conf_dict['macro_path'] = conf_dict['macro_path'] % version
-  conf_dict['morgue_path'] = conf_dict['morgue_path'] % version
+  conf_dict['morgue_path'] = conf_dict['morgue_path'] % version + "%n"
   conf_dict['inprogress_path'] = conf_dict['inprogress_path'] % version
   conf_dict['ttyrec_path'] = conf_dict['ttyrec_path'] % version
   conf_dict['socket_path'] = conf_dict['socket_path'] % version
