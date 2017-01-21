@@ -46,7 +46,7 @@ BASE_CONF_DICT = {
     "inprogress_path": "./rcs/running",
     "ttyrec_path": "./rcs/ttyrecs/%n",
     "socket_path": "./rcs",
-    "client_path": "/root/crawl/crawl-ref/source/webserver/game_data/",
+    "client_path": "./webserver/game_data/",
     "morgue_url": None,
     "send_json_options": True}
 
@@ -56,6 +56,7 @@ def GameConfTuples(version, conf_tuple_list):
   conf_dict = BASE_CONF_DICT.copy()
   conf_dict['name'] = "DCSS " + version
   conf_dict['crawl_binary'] = "/root/crawlout/%s/crawl" % version
+  conf_dict['rcfile_path'] = conf_dict['rcfile_path'] + version + '/'
   webconf = ("dcss-" + version, conf_dict)
   #tut_dict = conf_dict.copy()
   #tut_dict['name'] = "Tutorial " + version
