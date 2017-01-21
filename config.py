@@ -40,23 +40,27 @@ watch_socket_dirs = False
 
 
 BASE_CONF_DICT = {
-    "rcfile_path": "./rcs/",
-    "macro_path": "./rcs/",
-    "morgue_path": "./rcs/%n",
-    "inprogress_path": "./rcs/running",
-    "ttyrec_path": "./rcs/ttyrecs/%n",
-    "socket_path": "./rcs",
+    "rcfile_path": "/data/rcs/%s/",
+    "macro_path": "/data/rcs/%s/",
+    "morgue_path": "/data/rcs/%s/%n",
+    "inprogress_path": "/data/rcs/%s/running",
+    "ttyrec_path": "/data/rcs/%s/ttyrecs/%n",
+    "socket_path": "/data/rcs/%s/",
     "client_path": "./webserver/game_data/",
     "morgue_url": None,
     "send_json_options": True}
-
 
 
 def GameConfTuples(version, conf_tuple_list):
   conf_dict = BASE_CONF_DICT.copy()
   conf_dict['name'] = "DCSS " + version
   conf_dict['crawl_binary'] = "/root/crawlout/%s/crawl" % version
-  conf_dict['rcfile_path'] = conf_dict['rcfile_path'] + version + '/'
+  conf_dict['rcfile_path'] = conf_dict['rcfile_path'] % version
+  conf_dict['macro_path'] = conf_dict['macro_path'] % version
+  conf_dict['morgue_path'] = conf_dict['morgue_path'] % version
+  conf_dict['inprogress_path'] = conf_dict['inprogress_path'] % version
+  conf_dict['ttyrec_path'] = conf_dict['ttyrec_path'] % version
+  conf_dict['socket_path'] = conf_dict['socket_path'] % version
   webconf = ("dcss-" + version, conf_dict)
   #tut_dict = conf_dict.copy()
   #tut_dict['name'] = "Tutorial " + version
