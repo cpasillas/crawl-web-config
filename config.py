@@ -53,7 +53,7 @@ def GameConfTuples(version, conf_tuple_list):
   conf_dict["macro_path"] = rc_path
   conf_dict["morgue_path"] = rc_path + '%n'
   conf_dict["inprogress_path"] = rc_path + 'running'
-  conf_dict["ttyrec_path"] = rc_path = 'ttyrecs/%n'
+  conf_dict["ttyrec_path"] = rc_path + 'ttyrecs/%n'
   conf_dict["socket_path"] = rc_path
   conf_dict['name'] = "DCSS " + version
   conf_dict['crawl_binary'] = "/root/crawlout/%s/crawl" % version
