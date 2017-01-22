@@ -39,13 +39,8 @@ game_data_no_cache = True
 watch_socket_dirs = False
 
 
+VERSION_PATH = "/data/rcs/%s/"
 BASE_CONF_DICT = {
-    "rcfile_path": "/data/rcs/",
-    "macro_path": "/data/rcs/",
-    "morgue_path": "/data/rcs/%n",
-    "inprogress_path": "/data/rcs/running",
-    "ttyrec_path": "/data/rcs/ttyrecs/%n",
-    "socket_path": "/data/rcs/",
     "client_path": "./webserver/game_data/",
     "morgue_url": None,
     "send_json_options": True}
@@ -53,6 +48,13 @@ BASE_CONF_DICT = {
 
 def GameConfTuples(version, conf_tuple_list):
   conf_dict = BASE_CONF_DICT.copy()
+  rc_path = VERSION_PATH % version
+  conf_dict["rcfile_path"] = rc_path
+  conf_dict["macro_path"] = rc_path
+  conf_dict["morgue_path"] = rc_path + '%n'
+  conf_dict["inprogress_path"] = rc_path + 'running'
+  conf_dict["ttyrec_path"] = rc_path = 'ttyrecs/%n'
+  conf_dict["socket_path"] = rc_path
   conf_dict['name'] = "DCSS " + version
   conf_dict['crawl_binary'] = "/root/crawlout/%s/crawl" % version
   webconf = ("dcss-" + version, conf_dict)
