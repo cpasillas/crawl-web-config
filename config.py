@@ -73,6 +73,7 @@ def GameConfTuples(version, conf_tuple_list):
 conf_tuple_list = []
 trunk_confs = GameConfTuples('trunk', conf_tuple_list)
 zero_one_nine_confs = GameConfTuples('0.19', conf_tuple_list)
+manta_confs = GameConfTuples('manta', conf_tuple_list)
 
 # Game configs
 # %n in paths and urls is replaced by the current username
