@@ -44,7 +44,7 @@ BASE_CONF_DICT = {
     "macro_path": "/data/rcs/",
     "morgue_path": "/data/rcs/%n",
     "inprogress_path": "/data/rcs/running",
-    #"ttyrec_path": "/data/rcs/ttyrecs/%n",
+    "ttyrec_path": "/data/rcs/ttyrecs/%n",
     "socket_path": "/data/rcs/",
     "client_path": "./webserver/game_data/",
     "morgue_url": None,
