@@ -12,19 +12,23 @@ bind_nonsecure = True # Set to false to only use SSL
 # Or listen on multiple address/port pairs (overriding the above) with:
 bind_pairs = (
     ("", 8080),
-    ("", 80),
+#    ("", 80),
 )
 
+ROOT_DATA = "{{root_data_dir}}"
+BINARY_DIR = "{{root_binary_dir}}"
+WEBSERVER_DIR = "{{root_webserver_dir}}"
+UTIL_DIR = "{{util_dir}}"
+
 logging_config = {
-    "filename": "/data/webtiles.log",
+    "filename": ROOT_DATA + "/webtiles.log",
     "level": logging.INFO,
     "format": "%(asctime)s %(levelname)s: %(message)s"
 }
+password_db = ROOT_DATA + "/passwd.db3"
 
-password_db = "/data/passwd.db3"
-
-static_path = "/root/crawl/crawl-ref/source/webserver/static"
-template_path = "./webserver/templates/"
+static_path = WEBSERVER_DIR + "/static"
+template_path = WEBSERVER_DIR + "/templates/"
 
 # Path for server-side unix sockets (to be used to communicate with crawl)
 server_socket_path = None # Uses global temp dir
@@ -39,9 +43,9 @@ game_data_no_cache = True
 watch_socket_dirs = False
 
 
-VERSION_PATH = "/data/rcs/%s/"
+VERSION_PATH = ROOT_DATA + "/rcs/%s/"
 BASE_CONF_DICT = {
-    "client_path": "./webserver/game_data/",
+    "client_path": WEBSERVER_DIR + "/game_data/",
     "morgue_url": None,
     "send_json_options": True}
 
@@ -56,7 +60,7 @@ def GameConfTuples(version, conf_tuple_list):
   conf_dict["ttyrec_path"] = rc_path + 'ttyrecs/%n'
   conf_dict["socket_path"] = rc_path
   conf_dict['name'] = "DCSS " + version
-  conf_dict['crawl_binary'] = "/root/crawlout/%s/crawl" % version
+  conf_dict['crawl_binary'] = BINARY_DIR + "/%s/crawl" % version
   webconf = ("dcss-" + version, conf_dict)
   #tut_dict = conf_dict.copy()
   #tut_dict['name'] = "Tutorial " + version
@@ -71,18 +75,18 @@ def GameConfTuples(version, conf_tuple_list):
   #conf_tuple_list.append(sprintconf)
 
 conf_tuple_list = []
-#trunk_confs = GameConfTuples('trunk', conf_tuple_list)
-zero_one_nine_confs = GameConfTuples('0.19', conf_tuple_list)
-zero_twenty_nine_confs = GameConfTuples('0.20', conf_tuple_list)
-manta_confs = GameConfTuples('manta', conf_tuple_list)
-manta_confs = GameConfTuples('turkey', conf_tuple_list)
+GameConfTuples('trunk', conf_tuple_list)
+GameConfTuples('0.19', conf_tuple_list)
+GameConfTuples('0.20', conf_tuple_list)
+GameConfTuples('manta', conf_tuple_list)
+GameConfTuples('turkey', conf_tuple_list)
 
 # Game configs
 # %n in paths and urls is replaced by the current username
 # morgue_url is for a publicly available URL to access morgue_path
 games = OrderedDict(conf_tuple_list)
 
-dgl_status_file = "/data/rcs/status"
+dgl_status_file = ROOT_DATA + "/rcs/status"
 
 # Set to None not to read milestones
 milestone_file = "./milestones"
@@ -96,7 +100,7 @@ max_connections = 100
 # Script to initialize a user, e.g. make sure the paths
 # and the rc file exist. This is not done by the server
 # at the moment.
-init_player_program = "./util/webtiles-init-player.sh"
+init_player_program = UTIL_DIR + "/webtiles-init-player.sh"
 
 ssl_options = None # No SSL
 #ssl_options = {
@@ -151,7 +155,8 @@ daemon = False # If true, the server will detach from the session after startup
 # hyperlink WebTiles spectator names to their player pages.
 # For example: "http://crawl.akrasiac.org/scoring/players/%s.html"
 # Set to None to disable player page hyperlinks
-player_url = None
+#player_url = None
+player_url = "http://localhost:8080/scoring/players/%s.html"
 
 # Only for development:
 # Disable caching of static files which are not part of game data.

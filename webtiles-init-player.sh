@@ -1,10 +1,12 @@
 #!/bin/sh
 
-RCDIR_T=/data/rcs/trunk
-RCDIR_19=/data/rcs/0.19
-RCDIR_20=/data/rcs/0.20
-RCDIR_M=/data/rcs/manta
-RCDIR_TK=/data/rcs/turkey
+DATA_ROOT={{data_root}}
+
+RCDIR_T=$DATA_ROOT/rcs/trunk
+RCDIR_19=$DATA_ROOT/rcs/0.19
+RCDIR_20=$DATA_ROOT/rcs/0.20
+RCDIR_M=$DATA_ROOT/rcs/manta
+RCDIR_TK=$DATA_ROOT/rcs/turkey
 INPROGRESSDIR_T=$RCDIR_T/running
 INPROGRESSDIR_19=$RCDIR_19/running
 INPROGRESSDIR_20=$RCDIR_20/running
@@ -18,16 +20,19 @@ TTYRECDIR_TK=$RCDIR_TK/ttyrecs/$1
 DEFAULT_RC=../settings/init.txt
 PLAYERNAME=$1
 
+echo MAKING RCDIRS
 mkdir -p $RCDIR_T
 mkdir -p $RCDIR_19
 mkdir -p $RCDIR_20
 mkdir -p $RCDIR_M
 mkdir -p $RCDIR_TK
+echo MAKING PROGRESS DIRS
 mkdir -p $INPROGRESSDIR_T
 mkdir -p $INPROGRESSDIR_19
 mkdir -p $INPROGRESSDIR_20
 mkdir -p $INPROGRESSDIR_M
 mkdir -p $INPROGRESSDIR_TK
+echo MAKING TTYREC DIRS
 mkdir -p $TTYRECDIR_T
 mkdir -p $TTYRECDIR_19
 mkdir -p $TTYRECDIR_20
