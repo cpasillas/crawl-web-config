@@ -39,6 +39,6 @@ echo MAKING TTYREC DIRS
 #mkdir -p $TTYRECDIR_M
 mkdir -p $TTYRECDIR_TK
 
-if [ ! -f ${RCDIR}/${PLAYERNAME}.rc ]; then
-    cp ${DEFAULT_RC} ${RCDIR}/${PLAYERNAME}.rc
+if [ ! -f ${RCDIR_TK}/${PLAYERNAME}.rc ]; then
+    cp ${DEFAULT_RC} ${RCDIR_TK}/${PLAYERNAME}.rc
 fi
