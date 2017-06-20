@@ -2,43 +2,23 @@
 
 DATA_ROOT={{data_root}}
 
-#RCDIR_T=$DATA_ROOT/rcs/trunk
-#RCDIR_19=$DATA_ROOT/rcs/0.19
-#RCDIR_20=$DATA_ROOT/rcs/0.20
-#RCDIR_M=$DATA_ROOT/rcs/manta-0.20
-RCDIR_TK=$DATA_ROOT/rcs/turkey-0.20
-#INPROGRESSDIR_T=$RCDIR_T/running
-#INPROGRESSDIR_19=$RCDIR_19/running
-#INPROGRESSDIR_20=$RCDIR_20/running
-#INPROGRESSDIR_M=$RCDIR_M/running
+RCDIR=$DATA_ROOT/rcs
+
+RCDIR_TK=$RCDIR/turkey-0.20
 INPROGRESSDIR_TK=$RCDIR_TK/running
-#TTYRECDIR_T=$RCDIR_T/ttyrecs/$1
-#TTYRECDIR_19=$RCDIR_19/ttyrecs/$1
-#TTYRECDIR_20=$RCDIR_20/ttyrecs/$1
-#TTYRECDIR_M=$RCDIR_M/ttyrecs/$1
 TTYRECDIR_TK=$RCDIR_TK/ttyrecs/$1
 DEFAULT_RC=../settings/init.txt
 PLAYERNAME=$1
 
-echo MAKING RCDIRS
-#mkdir -p $RCDIR_T
-#mkdir -p $RCDIR_19
-#mkdir -p $RCDIR_20
-#mkdir -p $RCDIR_M
+echo MAKING RCDIR
 mkdir -p $RCDIR_TK
-echo MAKING PROGRESS DIRS
-#mkdir -p $INPROGRESSDIR_T
-#mkdir -p $INPROGRESSDIR_19
-#mkdir -p $INPROGRESSDIR_20
-#mkdir -p $INPROGRESSDIR_M
+
+echo MAKING PROGRESS DIR
 mkdir -p $INPROGRESSDIR_TK
-echo MAKING TTYREC DIRS
-#mkdir -p $TTYRECDIR_T
-#mkdir -p $TTYRECDIR_19
-#mkdir -p $TTYRECDIR_20
-#mkdir -p $TTYRECDIR_M
+
+echo MAKING TTYREC DIR
 mkdir -p $TTYRECDIR_TK
 
-if [ ! -f ${RCDIR_TK}/${PLAYERNAME}.rc ]; then
-    cp ${DEFAULT_RC} ${RCDIR_TK}/${PLAYERNAME}.rc
+if [ ! -f ${RCDIR}/${PLAYERNAME}.rc ]; then
+    cp ${DEFAULT_RC} ${RCDIR}/${PLAYERNAME}.rc
 fi
