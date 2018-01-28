@@ -5,19 +5,28 @@ DATA_ROOT={{data_root}}
 RCDIR=$DATA_ROOT/rcs
 
 RCDIR_TK=$RCDIR/turkey-0.20
+RCDIR_TK21=$RCDIR/turkey-0.21
+
 INPROGRESSDIR_TK=$RCDIR_TK/running
+INPROGRESSDIR_TK21=$RCDIR_TK21/running
+
 TTYRECDIR_TK=$RCDIR_TK/ttyrecs/$1
+TTYRECDIR_TK21=$RCDIR_TK21/ttyrecs/$1
+
 DEFAULT_RC=../settings/init.txt
 PLAYERNAME=$1
 
 echo MAKING RCDIR
 mkdir -p $RCDIR_TK
+mkdir -p $RCDIR_TK21
 
 echo MAKING PROGRESS DIR
 mkdir -p $INPROGRESSDIR_TK
+mkdir -p $INPROGRESSDIR_TK21
 
 echo MAKING TTYREC DIR
 mkdir -p $TTYRECDIR_TK
+mkdir -p $TTYRECDIR_TK21
 
 if [ ! -f ${RCDIR}/${PLAYERNAME}.rc ]; then
     cp ${DEFAULT_RC} ${RCDIR}/${PLAYERNAME}.rc

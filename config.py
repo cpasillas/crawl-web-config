@@ -80,6 +80,7 @@ conf_tuple_list = []
 #GameConfTuples('0.20', conf_tuple_list)
 #GameConfTuples('manta', conf_tuple_list)
 GameConfTuples('turkey-0.20', conf_tuple_list)
+GameConfTuples('turkey-0.21', conf_tuple_list)
 
 # Game configs
 # %n in paths and urls is replaced by the current username
